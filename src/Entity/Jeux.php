@@ -53,6 +53,11 @@ class Jeux
      */
     private $console_id;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +143,18 @@ class Jeux
     public function setConsoleId(?Console $console_id): self
     {
         $this->console_id = $console_id;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
