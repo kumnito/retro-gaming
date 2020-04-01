@@ -3,10 +3,106 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/all.css" rel="stylesheet">
+        <link href="css/class.css" rel="stylesheet">
+        {% endblock %}
     </head>
     <body>
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"> RETRO-GAMING 90 </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">  <img class="img1" src="img/icon-nine.png"/> Super Nintendo</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <img class="img1" src="img/icon-mega.png"/> Mega Drive</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#l"> <img class="img1" src="img/icon-souris.png"/> Contact</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav pl-3">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#"> <img class="img1" src="img/icon-monster.png"/> Connexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <img class="img1" src="img/icon-deconnexion.png"/> Deconnexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#l">  <img class="img1" src="img/icon-etoile.png"/> Inscription</a>
+                        </li>
+                    </ul>
+                
+                    <form class="form-inline my-2 my-lg-0">
+                        <a class="btn btn-success btn-sm ml-3" href="cart.html">
+                            <i class="fa fa-shopping-cart fa-2x"></i> <p > Panier </p>
+                            <span class="badge badge-light"> 3 </span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Retro Gaming 90</h1>
+                <p class="lead text-muted mb-0">Bienvenue sur ce site qui vous replongera dans votre enfance avec ces jeux d'une autre epoque etc...</p>
+            </div>
+        </section>
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+
+        <!-- Footer -->
+        <footer class="text-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-4 col-xl-3">
+                            <h5>A propos</h5>
+                            <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                                <p>Site réalisé par :</p>
+                                <p>Victoria, Ameline, Kumnito, Julien</p>
+                        </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                        <h5>Informations</h5>
+                        <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <p>Technologies utilisées</p>
+                        <ul class="list-unstyled" style="width:300px;">
+                            <li><i class="fab fa-html5 fa-3x"></i>  & <i class="fab fa-css3-alt fa-3x"></i>,
+                            <i class="fab fa-php fa-3x"></i> & <i class="fab fa-symfony fa-3x"></i></li>
+                        </ul>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top:50px;">
+                        <p class="float-right">
+                            <a href="#" style="color:rgb(92, 92, 233);"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {% block javascripts %}
+        <!-- JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+        {% endblock %}
     </body>
 </html>
