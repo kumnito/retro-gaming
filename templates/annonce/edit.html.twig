@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un produit - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <button class="btn btn-primary" formnovalidate>
+                Modifier le produit
+            </button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

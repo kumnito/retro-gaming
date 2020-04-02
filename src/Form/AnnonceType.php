@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Jeux;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,8 +20,13 @@ class AnnonceType extends AbstractType
             ->add('annee')
             ->add('prix')
             ->add('compteur')
-            ->add('categorie')
-            ->add('console_id')
+            // ->add('categories', Categorie::class, array(
+            //     'class'    => 'App: Categorie',
+            //     'property' => 'nom',
+            //     'multiple' => true
+            //   ))
+            // ->add('categorie')
+            // ->add('console_id')
             ->add('photo',FileType::class, [
                 'label' => 'La photo du jeux (PNG, JPG, JPEG) ',
 

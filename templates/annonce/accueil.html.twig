@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnnonceController!{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-uppercase" style="text-align: center;">
+                    <i class="fa fa-star"></i> tous les Jeux 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for jeu in allJeux %}
+                            <div class="col-lg-3">
+                                <div class="card shadow">
+                                    <div class="card">
+
+                                        <img class="card-img-top" src="{{ asset('images/96a8306fd0a9327028d0ef6a0f34e9c4-5e85ac5e0d846.jpeg') }}" alt="Card image cap">
+
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ jeu.titre }}</h5>
+                                                <p>{{ jeu.description }}</p>
+                                                <p><strong>{{ jeu.prix }} €</strong></p>
+                                                <p>Année : {{ jeu.annee }}</p>
+                                                <p>Categorie : {{ jeu.categorie.nom }}</p>
+                                                <p>Console : {{ jeu.consoleId.nom }}</p>
+                                                <a href="{{ path('edit', {id: jeu.id}) }}"
+                                                    class="btn btn-info">Modifier</a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

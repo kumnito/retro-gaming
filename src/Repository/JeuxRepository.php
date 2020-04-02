@@ -19,32 +19,45 @@ class JeuxRepository extends ServiceEntityRepository
         parent::__construct($registry, Jeux::class);
     }
 
-    // /**
-    //  * @return Jeux[] Returns an array of Jeux objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllNintendo()
     {
-        return $this->createQueryBuilder('j')
-            ->andWhere('j.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('j.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $queryBuilder = $this->createQueryBuilder('jeuNin')
+            ->where('jeuNin.console_id = 1')
+            ->orderBy('jeuNin.titre', 'ASC')
+            ->getQuery();
 
-    /*
-    public function findOneBySomeField($value): ?Jeux
-    {
-        return $this->createQueryBuilder('j')
-            ->andWhere('j.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $queryBuilder->getResult();
     }
-    */
+
+    public function findAllMegaDrive()
+    {
+        $queryBuilder = $this->createQueryBuilder('jeuNin')
+            ->where('jeuNin.console_id = 2')
+            ->orderBy('jeuNin.titre', 'ASC')
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    }
+
+    public function findAllBBBB()
+    {
+        $queryBuilder = $this->createQueryBuilder('test')
+            ->orderBy('test.compteur', 'desc')
+            ->setMaxResults(4)
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    }
+
+    public function findAll()
+    {
+        $queryBuilder = $this->createQueryBuilder('allJeux')
+            ->innerJoin('allJeux.categorie', 'ca')
+            ->innerJoin('allJeux.console_id', 'co')
+            ->addSelect('ca', 'co')
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    
+    }
 }
