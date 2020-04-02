@@ -13,7 +13,7 @@ class AccueilController extends AbstractController
      */
     public function accueil()
     {
-        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAll();
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->test();
 
         return $this->render('annonce/accueil.html.twig', [
             'allJeux' => $allJeux,
@@ -25,9 +25,21 @@ class AccueilController extends AbstractController
      */
     public function listeAllNintendo()
     {
-        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAll();
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllNintendo();
 
         return $this->render('annonce/listeNintendo.html.twig', [
+            'allJeux' => $allJeux,
+        ]);
+    }
+
+    /**
+     * @Route("/liste_des_jeux_Mega-drive", name="listeAllMegaDrive")
+     */
+    public function listeAllMegaDrive()
+    {
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllMegaDrive();
+
+        return $this->render('annonce/listeMegaDrive.html.twig', [
             'allJeux' => $allJeux,
         ]);
     }

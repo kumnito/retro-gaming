@@ -39,7 +39,7 @@ class JeuxRepository extends ServiceEntityRepository
         return $queryBuilder->getResult();
     }
 
-    public function findAllBBBB()
+    public function test()
     {
         $queryBuilder = $this->createQueryBuilder('test')
             ->orderBy('test.compteur', 'desc')

@@ -2,20 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Retro Gaming 90{% endblock %}</title>
         {% block stylesheets %}
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link href="css/all.css" rel="stylesheet">
-        <link href="css/class.css" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/class.css') }}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="index.html"> RETRO-GAMING 90 </a>
+                <a class="navbar-brand" href="{{ path('accueil') }}"> RETRO-GAMING 90 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,27 +23,27 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ path('listeAllNintendo') }}">  <img class="img1" src="img/icon-nine.png"/> Super Nintendo</a> 
+                        <a class="nav-link" href="{{ path('listeAllNintendo') }}">  <img class="img1" src="{{ asset('icons/icon-nine.png') }}"/> Super Nintendo</a> 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"> <img class="img1" src="img/icon-mega.png"/> Mega Drive</a>
+                            <a class="nav-link" href="{{ path('listeAllMegaDrive') }}"> <img class="img1" src="{{ asset('icons/icon-mega.png') }}"/> Mega Drive</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#l"> <img class="img1" src="img/icon-souris.png"/> Contact</a>
+                            <a class="nav-link" href="#l"> <img class="img1" src="{{ asset('icons/icon-souris.png') }}"/> Contact</a>
                         </li>
                     </ul>
 
                     <ul class="navbar-nav pl-3">
                         <li class="nav-item">
-                        <a class="nav-link" href="#"> <img class="img1" src="img/icon-monster.png"/> Connexion</a>
+                        <a class="nav-link" href="#"> <img class="img1" src="{{ asset('icons/icon-monster.png') }}"/> Connexion</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#"> <img class="img1" src="img/icon-deconnexion.png"/> Deconnexion</a>
+                            <a class="nav-link" href="#"> <img class="img1" src="{{ asset('icons/icon-deconnexion.png') }}"/> Deconnexion</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#l">  <img class="img1" src="img/icon-etoile.png"/> Inscription</a>
+                            <a class="nav-link" href="#l">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
                         </li>
                     </ul>
                 

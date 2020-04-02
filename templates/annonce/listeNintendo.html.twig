@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AnnonceController!{% endblock %}
+{% block title %}Super Nintendo{% endblock %}
 
 {% block body %}
 <div class="container mt-3">
@@ -17,11 +17,11 @@
                                 <div class="card shadow">
                                     <div class="card">
 
-                                        <img class="card-img-top" src="{{ asset('images/96a8306fd0a9327028d0ef6a0f34e9c4-5e85ac5e0d846.jpeg') }}" alt="Card image cap">
+                                        <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
 
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ jeu.titre }}</h5>
-                                                <p>{{ jeu.description }}</p>
+                                                {# <p>{{ jeu.description }}</p> #}
                                                 <p><strong>{{ jeu.prix }} €</strong></p>
                                                 <p>Année : {{ jeu.annee }}</p>
                                                 <p>Categorie : {{ jeu.categorie.nom }}</p>
