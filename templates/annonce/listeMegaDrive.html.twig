@@ -12,13 +12,12 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                    
                         {% for jeu in allJeux %}
                             <div class="col-lg-3">
                                 <div class="card shadow">
                                     <div class="card">
-
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
-
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ jeu.titre }}</h5>
                                                 {# <p>{{ jeu.description }}</p> #}
@@ -26,13 +25,12 @@
                                                 <p>Année : {{ jeu.annee }}</p>
                                                 <p>Categorie : {{ jeu.categorie.nom }}</p>
                                                 <p>Console : {{ jeu.consoleId.nom }}</p>
-                                                <a href="{{ path('edit', {id: jeu.id}) }}"
-                                                    class="btn btn-info">Modifier</a>
                                             </div>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
+
                     </div>
                 </div>
             </div>

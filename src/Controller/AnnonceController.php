@@ -12,90 +12,41 @@ use App\Form\AnnonceType;
 class AnnonceController extends AbstractController
 {
 
+    
+
     /**
-     * @Route("/edit/{id}", name="edit")
+     * @Route("/liste_des_jeux_Super-Nintendo", name="listeAllNintendo")
      */
-    public function edit(Request $request, Jeux $jeu)
+    public function listeAllNintendo()
     {
-        $form = $this->createForm(AnnonceType::class, $jeu);
-        $form->handleRequest($request);
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllNintendo();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            
-            $photo = $form->get('photo')->getData();
-
-            if ($photo) {
-                // création d'un nom de fichier sécurisé
-                $randomBytes = random_bytes(128/8);
-                $safeFilename = bin2hex($randomBytes);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$photo->guessExtension();
-
-                try {
-                    $photo->move(
-                        $this->getParameter('dossierPhotos'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... il y a eu une erreur !!!
-                }
-                $jeu->setPhoto($newFilename);
-            }
-
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('accueil');
-        }
-
-        return $this->render('annonce/edit.html.twig', [
-            'form' => $form->createView(),
+        return $this->render('annonce/listeNintendo.html.twig', [
+            'allJeux' => $allJeux,
         ]);
     }
 
     /**
-     * @Route("/create", name="create")
+     * @Route("/liste_des_jeux_Mega-drive", name="listeAllMegaDrive")
      */
-    public function create(Request $request) 
+    public function listeAllMegaDrive()
     {
-        $jeu = new Jeux();
-        $form = $this->createForm(AnnonceType::class, $jeu);
-        $form->handleRequest($request);
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllMegaDrive();
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        return $this->render('annonce/listeMegaDrive.html.twig', [
+            'allJeux' => $allJeux,
+        ]);
+    }
 
-            $photo = $form->get('photo')->getData();
+    /**
+     * @Route("/Administration", name="Administration")
+     */
+    public function Administration()
+    {
+        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAll();
 
-            if ($photo) {
-                // création d'un nom de fichier sécurisé
-                $randomBytes = random_bytes(128/8);
-                $safeFilename = bin2hex($randomBytes);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$photo->guessExtension();
-
-                try {
-                    $photo->move(
-                        $this->getParameter('dossierPhotos'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    // ... il y a eu une erreur !!!
-                }
-                $jeu->setPhoto($newFilename);
-            }
-
-            // On peut aussi utiliser l'autowiring :
-            // create(EntityManagerInterface $entityManager)
-            $entityManager = $this->getDoctrine()->getManager();
-
-            // On demande à Doctrine de mettre l'objet en attente
-            $entityManager->persist($jeu);
-
-            // Exécute la(es) requête(s) (INSERT...)
-			$entityManager->flush();
-
-            return $this->redirectToRoute('accueil');
-        }
-
-        return $this->render('annonce/create.html.twig', [
-            'form' => $form->createView(),
+        return $this->render('admin/admin.html.twig', [
+            'allJeux' => $allJeux,
         ]);
     }
 

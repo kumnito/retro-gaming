@@ -19,28 +19,4 @@ class AccueilController extends AbstractController
             'allJeux' => $allJeux,
         ]);
     }
-
-    /**
-     * @Route("/liste_des_jeux_Super-Nintendo", name="listeAllNintendo")
-     */
-    public function listeAllNintendo()
-    {
-        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllNintendo();
-
-        return $this->render('annonce/listeNintendo.html.twig', [
-            'allJeux' => $allJeux,
-        ]);
-    }
-
-    /**
-     * @Route("/liste_des_jeux_Mega-drive", name="listeAllMegaDrive")
-     */
-    public function listeAllMegaDrive()
-    {
-        $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllMegaDrive();
-
-        return $this->render('annonce/listeMegaDrive.html.twig', [
-            'allJeux' => $allJeux,
-        ]);
-    }
 }

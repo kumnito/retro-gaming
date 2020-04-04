@@ -52,6 +52,7 @@ class JeuxRepository extends ServiceEntityRepository
     public function findAll()
     {
         $queryBuilder = $this->createQueryBuilder('allJeux')
+            ->orderBy('allJeux.id', 'desc')
             ->innerJoin('allJeux.categorie', 'ca')
             ->innerJoin('allJeux.console_id', 'co')
             ->addSelect('ca', 'co')

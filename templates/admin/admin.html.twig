@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+
+        <a href="{{ path('admin_creation') }}" class="btn btn-success">Ajouter un jeu</a>
+
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Console</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Modifier/Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for jeu in allJeux %}
+                    <tr>
+                        <th scope="row">{{ jeu.id }}</th>
+                        <td>{{ jeu.titre }}</td>
+                        <td>{{ jeu.annee }}</td>
+                        <td>{{ jeu.prix }}</td>
+                        <td>{{ jeu.consoleId.nom }}</td>
+                        <td>{{ jeu.categorie.nom }}</td>
+                        <td><img class="img-rounded"  style="width:30%" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="{{ jeu.titre }}"></td>
+                        <td>
+                            <a href="{{ path('admin_modification', {id: jeu.id}) }}" class="btn btn-warning">Modifier</a>
+                            <a href="{{ path('admin_suppression', {id: jeu.id}) }}" class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
