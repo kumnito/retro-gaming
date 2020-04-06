@@ -39,15 +39,15 @@
 
                     <ul class="navbar-nav pl-3">
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ path('listeAllNintendo') }}"> <img class="img1" src="{{ asset('icons/icon-monster.png') }}"/> Connexion</a>
+                        <a class="nav-link" href="{{ path('connexion') }}"> <img class="img1" src="{{ asset('icons/icon-monster.png') }}"/> Connexion</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('listeAllMegaDrive') }}"> <img class="img1" src="{{ asset('icons/icon-deconnexion.png') }}"/> Deconnexion</a>
+                            <a class="nav-link" href="{{ path('app_logout') }}"> <img class="img1" src="{{ asset('icons/icon-deconnexion.png') }}"/> Deconnexion</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('Administration') }}">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
+                            <a class="nav-link" href="{{ path('inscription') }}">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
                         </li>
                     </ul>
                 
@@ -68,18 +68,29 @@
         {% block body %}{% endblock %}
 
 
-        <!-- Footer -->
-<footer>
-    <div class="container-wrap">
-        <div class="row">
-            <div class="columun">
-                <div class="footer-weight">
-                    <h5 class="widget-title about-widget"> A propos </h5>
-                    <div class="cards">
-                    <i class="fab fa-cc-mastercard fa-2x"></i> 
-                    <i class="fab fa-cc-visa fa-2x"></i>
-                    <i class="fab fa-cc-amex fa-2x"></i> 
-                    <i class="fab fa-cc-paypal fa-2x"></i>
+<<<<<<< HEAD
+
+=======
+        <footer class="text-light bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-4 col-xl-3">
+                            <h5>A propos</h5>
+                            <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                                <p>Site réalisé par :</p>
+                                <p>Victoria, Ameline, Kumnito, Julien</p>
+                        </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                        <h5>Informations</h5>
+                        <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <p>Technologies utilisées</p>
+                        <ul class="list-unstyled" style="width:300px;">
+                            <li><i class="fab fa-html5 fa-3x"></i>  & <i class="fab fa-css3-alt fa-3x"></i>,
+                            <i class="fab fa-php fa-3x"></i> & <i class="fab fa-symfony fa-3x"></i></li>
+                        </ul>
+                        </ul>
+>>>>>>> ###
                     </div>
         
                     <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
