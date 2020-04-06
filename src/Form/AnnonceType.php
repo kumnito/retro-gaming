@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Categorie;
+use App\Entity\Console;
 use App\Entity\Jeux;
 use App\Repository\CategorieRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -31,21 +32,18 @@ class AnnonceType extends AbstractType
             ->add('prix')
             ->add('compteur')
 
-            // test valeur prédéfinie
+            ->add('Console_id', EntityType::class, [
+                'class' => Console::class,
+                'choice_label' => 'nom',
+                'required' => true,
+                ])
 
-            // ->add('console', ChoiceType::class [
-            //     'choices' => [
-            //         'Super Nintendo' => Super Nintendo,
-            //         'Mega Drive' => Mega Drive,
-            //     ],
-            // ])
-
-            // test valeur dans Bdd
             
-            // ->add('categorie', EntityType::class, [
-            //     'class' => Categorie::class,
-            //     'choices' , ChoiceType::class => $this->categorie->findAll(),
-            //     ])
+            ->add('categorie', EntityType::class, [
+                 'class' => Categorie::class,
+                 'choice_label' => 'nom',
+                 'required' => true,
+                 ])
 
             ->add('photo',FileType::class, [
                 'label' => 'La photo du jeux (PNG, JPG, JPEG) ',
