@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Retro Gaming 90{% endblock %}</title>
         {% block stylesheets %}
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/all.css') }}" rel="stylesheet">
         <link href="{{ asset('css/class.css') }}" rel="stylesheet">
@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="{{ path('accueil') }}"> RETRO-GAMING 90 </a>
+                <a class="navbar-brand" href="{{ path('accueil') }}"> <img class="logo1" src="{{ asset('icons/logo-retro1.png') }}" width="130px"> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,11 +29,9 @@
                             <a class="nav-link" href="{{ path('listeAllMegaDrive') }}"> <img class="img1" src="{{ asset('icons/icon-mega.png') }}"/> Mega Drive</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('Administration') }}"> Administration</a>
+                            <a class="nav-link" href="{{ path('Administration') }}"><img class="img1" src="{{ asset('icons/icon-admin.png') }}"/> Administration</a>
                         </li>
-                        {# <li class="nav-item">
-                            <a class="nav-link" href="#l"> <img class="img1" src="{{ asset('icons/icon-souris.png') }}"/> Contact</a>
-                        </li> #}
+
                     </ul>
 
                     <ul class="navbar-nav pl-3">
@@ -50,56 +48,84 @@
                         </li>
                     </ul>
                 
-                    <form class="form-inline my-2 my-lg-0">
-                        <a class="btn btn-success btn-sm ml-3" href="cart.html">
-                            <i class="fa fa-shopping-cart fa-2x"></i> <p > Panier </p>
-                            <span class="badge badge-light"> 3 </span>
-                        </a>
-                    </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-sm ml-3" href="cart.html">
+                        <i class="fa fa-shopping-cart fa-2x"></i> <p > Panier </p>
+                        <span class="badge badge-light"> 3 </span>
+                    </a>
+                </form>
                 </div>
             </div>
         </nav>
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Retro Gaming 90</h1>
-                <p class="lead text-muted mb-0">Bienvenue sur ce site qui vous replongera dans votre enfance avec ces jeux d'une autre epoque etc...</p>
-            </div>
-        </section>
+    <div class="card-header bg-dark text-white text-uppercase" style="text-align: center;"> {{titre}}
+    </div>
+    <br>
 
         {% block body %}{% endblock %}
 
 
         <!-- Footer -->
-        <footer class="text-light bg-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-lg-4 col-xl-3">
-                            <h5>A propos</h5>
-                            <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                                <p>Site réalisé par :</p>
-                                <p>Victoria, Ameline, Kumnito, Julien</p>
-                        </div>
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                        <h5>Informations</h5>
-                        <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                        <p>Technologies utilisées</p>
-                        <ul class="list-unstyled" style="width:300px;">
-                            <li><i class="fab fa-html5 fa-3x"></i>  & <i class="fab fa-css3-alt fa-3x"></i>,
-                            <i class="fab fa-php fa-3x"></i> & <i class="fab fa-symfony fa-3x"></i></li>
-                        </ul>
-                        </ul>
+<footer>
+    <div class="container-wrap">
+        <div class="row">
+            <div class="columun">
+                <div class="footer-weight">
+                    <h5 class="widget-title about-widget"> A propos </h5>
+                    <div class="cards">
+                    <i class="fab fa-cc-mastercard fa-2x"></i> 
+                    <i class="fab fa-cc-visa fa-2x"></i>
+                    <i class="fab fa-cc-amex fa-2x"></i> 
+                    <i class="fab fa-cc-paypal fa-2x"></i>
                     </div>
+        
+                    <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
+               </div>
+            </div>
 
-                    <div style="margin-top:50px;">
-                        <p class="float-right">
-                            <a href="#" style="color:rgb(92, 92, 233);"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
-                        </p>
+            <div class="columun">
+                <div class="footer-weight Information-widget">
+                <h5 class="widget-title"> Informations </h5>
+                <ul>
+                    <li> <a href="conditionsinfo.html"> CONDITIONS GENERALES </a> </li>
+                    <li> <a href="EchangesRetours.html.html"> ECHANGES ET RETOURS </a> </li>
+                    <li> <a href="#"> NOUS CONTACTER </a> </li>
+                </ul>
+                 </div>
+           </div>
+
+          <div class="copyright">
+              <div class="container">
+                <div class="footer-weight about-widget" style="text-align: center;">
+                    <div class="social-widget"> 
+                        <a href="#"> <i class="fab fa-facebook-square fa-2x"></i> </a>
+                        <a href="#"> <i class="fab fa-instagram fa-2x"></i> </a> 
+                        <a href="#"> <i class="fab fa-twitter-square fa-2x "></i> </a> 
+                        <a href="#"> <i class="fab fa-youtube fa-2x"></i> </i> </a>   
                     </div>
                 </div>
-            </div>
-        </footer>
+                <br>
+                &copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés - <p> Technologies utilisées : 
+                    <i class="fab fa-html5 fa-2x "></i>   <i class="fab fa-css3-alt fa-2x"> </i> 
+                    <i class="fab fa-php fa-2x"></i>  <i class="fab fa-symfony fa-2x"></i> 
+              </p>
+                </ul>
+
+              </div>
+          </div>
+          <div style="margin-top:50px;">
+            <p class="float-right">
+                <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+            </p>
+        </div>
+        </div>
+
+
+    
+   
+        </div>
+    </div>
+</footer>
 
         {% block javascripts %}
         <!-- JS -->
