@@ -36,17 +36,23 @@
                     </ul>
 
                     <ul class="navbar-nav pl-3">
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') == false %}
                         <li class="nav-item">
                         <a class="nav-link" href="{{ path('connexion') }}"> <img class="img1" src="{{ asset('icons/icon-monster.png') }}"/> Connexion</a>
                         </li>
-
+                        {% endif %}
+                        
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_logout') }}"> <img class="img1" src="{{ asset('icons/icon-deconnexion.png') }}"/> Deconnexion</a>
                         </li>
+                        {% endif %}
 
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') == false %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('inscription') }}">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
                         </li>
+                        {% endif %}
                     </ul>
                 
                 <form class="form-inline my-2 my-lg-0">

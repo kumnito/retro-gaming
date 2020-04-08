@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use App\Form\UserType;
 
 class SecurityController extends AbstractController
 {
@@ -33,5 +36,35 @@ class SecurityController extends AbstractController
     public function logout()
     {
         return $this->redirectToRoute('accueil');
+    }
+
+    /**
+     * @Route("/security/inscription", name="inscription")
+     */
+    public function nouveauUser(Request $request) 
+    {
+        $user = new User
+        $form = $this->
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // On peut aussi utiliser l'autowiring :
+            // create(EntityManagerInterface $entityManager)
+            $entityManager = $this->getDoctrine()->getManager();
+
+            // On demande à Doctrine de mettre l'objet en attente
+            $entityManager->persist($user);
+
+            // Exécute la(es) requête(s) (INSERT...)
+			$entityManager->flush();
+
+            return $this->redirectToRoute('Administration');
+        }
+
+        return $this->render('admin/create.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
