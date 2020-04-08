@@ -26,7 +26,7 @@ security:
             security: false
         main:
             anonymous: lazy
-            provider: my_provider
+            provider: app_user_provider
 
             form_login:
                 login_path: connexion
