@@ -36,19 +36,19 @@
                     </ul>
 
                     <ul class="navbar-nav pl-3">
-                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') == false %}
+                        {% if is_granted('ROLE_USER')  == false %}
                         <li class="nav-item">
                         <a class="nav-link" href="{{ path('connexion') }}"> <img class="img1" src="{{ asset('icons/icon-monster.png') }}"/> Connexion</a>
                         </li>
                         {% endif %}
                         
-                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_USER')  %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_logout') }}"> <img class="img1" src="{{ asset('icons/icon-deconnexion.png') }}"/> Deconnexion</a>
                         </li>
                         {% endif %}
 
-                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') == false %}
+                        {% if is_granted('ROLE_USER')  == false %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('inscription') }}">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
                         </li>
@@ -71,69 +71,62 @@
 
         {% block body %}{% endblock %}
 
-        <footer class="text-light bg-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-lg-4 col-xl-3">
-                        <h5>A propos</h5>
-                        <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                            <p>Site réalisé par :</p>
-                            <p>Victoria, Ameline, Kumnito, Julien</p>
+    <footer>
+        <div class="container-wrap">
+            <div class="row">
+                <div class="columun">
+                    <div class="footer-weight">
+                        <h5 class="widget-title about-widget"> A propos </h5>
+                        <div class="cards">
+                        <i class="fab fa-cc-mastercard fa-2x"></i> 
+                        <i class="fab fa-cc-visa fa-2x"></i>
+                        <i class="fab fa-cc-amex fa-2x"></i> 
+                        <i class="fab fa-cc-paypal fa-2x"></i>
+                        </div>
+            
+                        <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
+                </div>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                    <h5>Informations</h5>
-                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <p>Technologies utilisées</p>
-                    <ul class="list-unstyled" style="width:300px;">
-                        <li><i class="fab fa-html5 fa-3x"></i>  & <i class="fab fa-css3-alt fa-3x"></i>,
-                        <i class="fab fa-php fa-3x"></i> & <i class="fab fa-symfony fa-3x"></i></li>
+                <div class="columun">
+                    <div class="footer-weight Information-widget">
+                    <h5 class="widget-title"> Informations </h5>
+                    <ul class="informations">
+                        <li> <a href="conditionsinfo.html"> CONDITIONS GENERALES </a> </li>
+                        <li> <a href="EchangesRetours.html.html"> ECHANGES ET RETOURS </a> </li>
+                        <li> <a href="contact.html"> NOUS CONTACTER </a> </li>
                     </ul>
-                </div>
-    
-                <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
-        </div>
-        </div>
-
-        <div class="columun">
-            <div class="footer-weight Information-widget">
-            <h5 class="widget-title"> Informations </h5>
-            <ul>
-                <li> <a href="conditionsinfo.html"> CONDITIONS GENERALES </a> </li>
-                <li> <a href="EchangesRetours.html.html"> ECHANGES ET RETOURS </a> </li>
-                <li> <a href="#"> NOUS CONTACTER </a> </li>
-            </ul>
+                    </div>
             </div>
-    </div>
 
-    <div class="copyright">
-        <div class="container">
-            <div class="footer-weight about-widget" style="text-align: center;">
-                <div class="social-widget"> 
-                    <a href="#"> <i class="fab fa-facebook-square fa-2x"></i> </a>
-                    <a href="#"> <i class="fab fa-instagram fa-2x"></i> </a> 
-                    <a href="#"> <i class="fab fa-twitter-square fa-2x "></i> </a> 
-                    <a href="#"> <i class="fab fa-youtube fa-2x"></i> </i> </a>   
+            <div class="copyright">
+                <div class="container">
+                    <div class="footer-weight about-widget" style="text-align: center;">
+                        <div class="social-widget"> 
+                            <a href="#"> <i class="fab fa-facebook-square fa-2x"></i> </a>
+                            <a href="#"> <i class="fab fa-instagram fa-2x"></i> </a> 
+                            <a href="#"> <i class="fab fa-twitter-square fa-2x "></i> </a> 
+                            <a href="#"> <i class="fab fa-youtube fa-2x"></i> </i> </a>   
+                        </div>
+                    </div>
+                    <br>
+                    &copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés - 
+                    <p> Technologies utilisées : 
+                        <i class="fab fa-html5 fa-2x "></i>   <i class="fab fa-css3-alt fa-2x"> </i> 
+                        <i class="fab fa-php fa-2x"></i>  <i class="fab fa-symfony fa-2x"></i> 
+                    </p>
+
                 </div>
             </div>
-            <br>
-            &copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés - <p> Technologies utilisées : 
-                <i class="fab fa-html5 fa-2x "></i>   <i class="fab fa-css3-alt fa-2x"> </i> 
-                <i class="fab fa-php fa-2x"></i>  <i class="fab fa-symfony fa-2x"></i> 
-        </p>
-            </ul>
+            <div style="margin-top:50px;">
+                <p class="float-right">
+                    <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+                </p>
+            </div>
+            </div>
 
         </div>
-    </div>
-    <div style="margin-top:50px;">
-        <p class="float-right">
-            <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
-        </p>
-    </div>
-    </div>
-</div>
-</div>
-</footer>
+    </footer>
 
         {% block javascripts %}
         <!-- JS -->
