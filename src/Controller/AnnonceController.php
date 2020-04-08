@@ -19,10 +19,12 @@ class AnnonceController extends AbstractController
      */
     public function listeAllNintendo()
     {
+        $titre='Super Nintendo';
         $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllNintendo();
 
         return $this->render('annonce/listeNintendo.html.twig', [
             'allJeux' => $allJeux,
+            'titre'=> $titre,
         ]);
     }
 
@@ -31,10 +33,12 @@ class AnnonceController extends AbstractController
      */
     public function listeAllMegaDrive()
     {
+        $titre='Mega Drive';
         $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAllMegaDrive();
 
         return $this->render('annonce/listeMegaDrive.html.twig', [
             'allJeux' => $allJeux,
+            'titre'=> $titre,
         ]);
     }
 
@@ -43,10 +47,12 @@ class AnnonceController extends AbstractController
      */
     public function Administration()
     {
+        $titre='Administration';
         $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->findAll();
 
         return $this->render('admin/admin.html.twig', [
             'allJeux' => $allJeux,
+            'titre'=> $titre,
         ]);
     }
 

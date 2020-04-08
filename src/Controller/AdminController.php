@@ -30,6 +30,7 @@ class AdminController extends AbstractController
      */
     public function modifier(Request $request, Jeux $jeu)
     {
+        $titre='Administration';
         $form = $this->createForm(AnnonceType::class, $jeu);
         $form->handleRequest($request);
 
@@ -61,6 +62,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/edit.html.twig', [
             'form' => $form->createView(),
+            'titre'=> $titre,
         ]);
     }
 
@@ -69,6 +71,7 @@ class AdminController extends AbstractController
      */
     public function creation(Request $request) 
     {
+        $titre='Administration';
         $jeu = new Jeux();
         $form = $this->createForm(AnnonceType::class, $jeu);
         $form->handleRequest($request);
@@ -109,6 +112,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/create.html.twig', [
             'form' => $form->createView(),
+            'titre'=> $titre,
         ]);
     }
 

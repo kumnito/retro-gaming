@@ -15,8 +15,11 @@ class AccueilController extends AbstractController
     {
         $allJeux = $this->getDoctrine()->getRepository(Jeux::class)->test();
 
+        $titre='Retro-Gaming';
+
         return $this->render('annonce/accueil.html.twig', [
             'allJeux' => $allJeux,
+            'titre'=> $titre,
         ]);
     }
 }
