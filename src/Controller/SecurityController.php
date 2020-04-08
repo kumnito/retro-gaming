@@ -18,6 +18,7 @@ class SecurityController extends AbstractController
      */
     public function loginAction(AuthenticationUtils $authenticationUtils): Response
     {
+        $titre = 'CONNEXION';
          // get the login error if there is one
     $error = $authenticationUtils->getLastAuthenticationError();
 
@@ -27,6 +28,7 @@ class SecurityController extends AbstractController
     return $this->render('security/connexion.html.twig', [
         'last_username' => $lastUsername,
         'error'         => $error,
+        'titre'         => $titre,
     ]);
     }
 
@@ -41,30 +43,4 @@ class SecurityController extends AbstractController
     /**
      * @Route("/security/inscription", name="inscription")
      */
-    public function nouveauUser(Request $request) 
-    {
-        $user = new User
-        $form = $this->
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            // On peut aussi utiliser l'autowiring :
-            // create(EntityManagerInterface $entityManager)
-            $entityManager = $this->getDoctrine()->getManager();
-
-            // On demande à Doctrine de mettre l'objet en attente
-            $entityManager->persist($user);
-
-            // Exécute la(es) requête(s) (INSERT...)
-			$entityManager->flush();
-
-            return $this->redirectToRoute('Administration');
-        }
-
-        return $this->render('admin/create.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
 }
