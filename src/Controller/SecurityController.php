@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Form\UserType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
@@ -18,16 +19,18 @@ class SecurityController extends AbstractController
      */
     public function loginAction(AuthenticationUtils $authenticationUtils): Response
     {
+        $titre = 'CONNEXION';           // 1
          // get the login error if there is one
-    $error = $authenticationUtils->getLastAuthenticationError();
+        $error = $authenticationUtils->getLastAuthenticationError();
 
-    // last username entered by the user
-    $lastUsername = $authenticationUtils->getLastUsername();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-    return $this->render('security/connexion.html.twig', [
-        'last_username' => $lastUsername,
-        'error'         => $error,
-    ]);
+        return $this->render('security/connexion.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+            'titre'         => $titre,  // 2  
+        ]);
     }
 
      /**
@@ -39,32 +42,39 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/security/inscription", name="inscription")
+     * @Route("/inscription", name="inscription")
      */
-    public function nouveauUser(Request $request) 
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $user = new User
-        $form = $this->
+        $titre = 'INSCRIPTION';
+        // 1) build the form
+        $user = new User();
         $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
 
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // On peut aussi utiliser l'autowiring :
-            // create(EntityManagerInterface $entityManager)
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
+            // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
-
-            // On demande à Doctrine de mettre l'objet en attente
             $entityManager->persist($user);
+            $entityManager->flush();
 
-            // Exécute la(es) requête(s) (INSERT...)
-			$entityManager->flush();
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('Administration');
+            return $this->redirectToRoute('connexion');
         }
 
-        return $this->render('admin/create.html.twig', [
+        return $this->render('security/inscription.html.twig',[
             'form' => $form->createView(),
+            'titre'=> $titre,
         ]);
     }
+
+    
 }
