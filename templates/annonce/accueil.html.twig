@@ -17,6 +17,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+
                         {% for jeu in allJeux %}
                             <div class="col-lg-3">
                                 <div class="card shadow">
@@ -24,8 +25,10 @@
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
 
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ jeu.titre }}</h5>
-                                                {# <p>{{ jeu.description }}</p> #}
+                                                <h5 class="card-title">
+                                                    <a href="{{ path('jeu_show', {id: jeu.id}) }}"
+                                                        class="btn btn-secondary">{{ jeu.titre }}</a>
+                                                </h5>
                                                 <p><strong>{{ jeu.prix }} €</strong></p>
                                                 <p>Année : {{ jeu.annee }}</p>
                                                 <p>Categorie : {{ jeu.categorie.nom }}</p>
@@ -35,6 +38,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        
                     </div>
                 </div>
             </div>

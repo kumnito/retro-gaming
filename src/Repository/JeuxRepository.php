@@ -19,6 +19,17 @@ class JeuxRepository extends ServiceEntityRepository
         parent::__construct($registry, Jeux::class);
     }
 
+    // public function findByCategorie($cat)
+    // {
+    //     $queryBuilder = $this->createQueryBuilder('cat')
+    //         ->setParameter('val', $cat)
+    //         ->where('cat.console_id = :val')
+    //         ->orderBy('jeuNin.titre', 'ASC')
+    //         ->getQuery();
+
+    //     return $queryBuilder->getResult();
+    // }
+
     public function findAllNintendo()
     {
         $queryBuilder = $this->createQueryBuilder('jeuNin')

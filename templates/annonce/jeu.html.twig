@@ -1,0 +1,95 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Mega Drive{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <!-- Image -->
+        <div class="col-12 col-lg-6">
+            <div class="card bg-light mb-3">
+                <div class="card-body bg-white border border-ligh">
+                    <a href="" data-toggle="modal" data-target="#productModal">
+                        <img class="img-fluid" src="{{ asset( 'images/' ~ jeu.photo  ) }}" />
+                        <p class="text-center"style="color: black;">Zoom</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add to cart -->
+        <div class="col-12 col-lg-6 add_to_cart_block">
+            <div class="card bg-light mb-3">
+                <div class="card-body bg-white border border-ligh">
+                    <p class="price" style="color: black;">{{ jeu.prix }} &euro;</p>
+                    <form method="get" action="cart.html">
+                        <div class="form-group">
+                            <label>Quantité :</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="quantity-left-minus btn bg-dark text-white btn-number"  data-type="minus" data-field="">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
+                                <div class="input-group-append">
+                                    <button type="button" class="quantity-right-plus btn bg-dark text-white btn-number" data-type="plus" data-field="">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="cart.html" class=" btn btn-lg btn-block text-uppercase" style="color: black;" >
+                            <i class="fa fa-shopping-cart" style="color: black;"></i>  Ajouter au panier
+                        </a>
+                    </form>
+                    <div class="product_rassurance">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fa fa-truck fa-2x"></i><br/>Livraison rapide</li>
+                            <li class="list-inline-item"><i class="fa fa-credit-card fa-2x"></i><br/>Paiement sécurisé</li>
+                            <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br/>+33 00 00 00 00 </li>
+                        </ul>
+                    </div>
+                    <div class="datasheet p-3 mb-2 bg-info text-white bg-dark">
+                        <a href="" class="text-white "><i class="fa fa-file-text"></i> Télécharger la fiche produit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Description -->
+        <div class="col-12">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-dark text-white text-uppercase"><i class="fa fa-align-justify"></i> Description</div>
+                <div class="card-body">
+                    <p class="card-text">
+                    {{ jeu.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+<!-- Modal image -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">{{jeu.titre}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img class="img-fluid" src="{{ asset( 'images/' ~ jeu.photo  ) }}" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
