@@ -92,9 +92,9 @@
                     <div class="footer-weight Information-widget">
                     <h5 class="widget-title"> Informations </h5>
                     <ul class="informations">
-                        <li> <a href="conditionsinfo.html"> CONDITIONS GENERALES </a> </li>
-                        <li> <a href="EchangesRetours.html.html"> ECHANGES ET RETOURS </a> </li>
-                        <li> <a href="contact.html"> NOUS CONTACTER </a> </li>
+                        <li> <a href="{{ path('conditions') }}"> CONDITIONS GENERALES </a> </li>
+                        <li> <a href="{{ path('echangesRetours') }}"> ECHANGES ET RETOURS </a> </li>
+                        <li> <a href="{{ path('contact') }}"> NOUS CONTACTER </a> </li>
                     </ul>
                     </div>
             </div>
@@ -133,6 +133,27 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            //Plus & Minus for Quantity product
+            $(document).ready(function(){
+                var quantity = 1;
+
+                $('.quantity-right-plus').click(function(e){
+                    e.preventDefault();
+                    var quantity = parseInt($('#quantity').val());
+                    $('#quantity').val(quantity + 1);
+                });
+
+                $('.quantity-left-minus').click(function(e){
+                    e.preventDefault();
+                    var quantity = parseInt($('#quantity').val());
+                    if(quantity > 1){
+                        $('#quantity').val(quantity - 1);
+                    }
+                });
+            });
+        </script>
+
         {% endblock %}
     </body>
 </html>
