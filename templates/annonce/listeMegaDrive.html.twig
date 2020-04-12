@@ -17,7 +17,10 @@
                                     <div class="card">
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ jeu.titre }}</h5>
+                                                <h5 class="card-title">
+                                                    <a href="{{ path('jeu_show', {id: jeu.id}) }}"
+                                                    class="btn btn-secondary">{{ jeu.titre }}</a>
+                                                </h5>
                                                 {# <p>{{ jeu.description }}</p> #}
                                                 <p><strong>{{ jeu.prix }} €</strong></p>
                                                 <p>Année : {{ jeu.annee }}</p>
