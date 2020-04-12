@@ -3,11 +3,16 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+
+    <div class="flex">
+        <img class="personnage" src="images/personnages.png">
+    </div>
+
 <div class="container mt-3">
     <div class="row">
         <div class="col-sm">
             <div class="card">
-                <div class="card-header bg-primary text-white text-uppercase" style="text-align: center;">
+                <div class="card-header bg-dark text-white text-uppercase">
                     <i class="fa fa-star"></i> Meilleures ventes
                 </div>
                 <div class="card-body">
@@ -16,7 +21,6 @@
                             <div class="col-lg-3">
                                 <div class="card shadow">
                                     <div class="card">
-
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
 
                                             <div class="card-body">

@@ -102,10 +102,12 @@ nav .container{
 margin: 5% auto;
 }
 
-.card-header {
-font-size: 1.5em;
-color:#343a40;
-font-family:'gamesitalic';
+.card-header 
+{
+    text-align: center;
+    font-size: 1.5em;
+    background-color:#343a40;
+    font-family:'gamesitalic';
 }
 
 
@@ -113,7 +115,7 @@ font-family:'gamesitalic';
 
 footer {
     background: #343a40;
-    padding: 50px;
+    padding: 15px;
     color:#abaBaB;    
 }
 
@@ -202,9 +204,10 @@ margin-right:10px;
     transition: all .5 ease; 
 }
 
-.copyright {
-text-align: center;
-margin: 20px auto;
+.copyright 
+{
+    text-align: center;
+    margin-right:20px;
 }
 
 .copyright p {
@@ -234,20 +237,35 @@ margin-right:auto;
     font-family: 'gamesitalic';
     font-size: 0.95em;
 }
-
-
 /*Les titres des jeux*/
 
 .card-title{
     font-family:'gamesitalic';
-    color:#343a40;
+    color:black;
+}
+.copy
+{
+    text-align: center;
+}
+.col-sm
+{
+    width:70%;
+    margin:auto;
 }
 .col-lg-3
 {
     border: solid black 1px;
-    margin-top: 10px;
+    padding-right:0;
+    padding-left:0;
+    box-shadow:10px 10px;
+    margin-bottom:15px;
+    margin-right: 20px;
 }
-.card
+.informations
 {
-    margin-right:10px;
+    list-style-type: none;
+}
+.row
+{
+    justify-content: center;
 }

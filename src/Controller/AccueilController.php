@@ -22,4 +22,45 @@ class AccueilController extends AbstractController
             'titre'=> $titre,
         ]);
     }
+
+    /**
+     * @Route("/conditions-générales", name="conditions")
+     */
+    public function lesCG()
+    {
+        $titre='conditions Generales';
+
+        return $this->render('footer/conditions.html.twig', [
+            'titre' => $titre,
+        ]);
+    }
+
+    /**
+     * @Route("/echanges-et-retours", name="echangesRetours")
+     */
+    public function echanges()
+    {
+
+        $titre='Echanges / Retour';
+
+        return $this->render('footer/echangesRetours.html.twig', [
+            'titre' => $titre,
+        ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+
+        $titre='contact';
+
+        return $this->render('footer/contact.html.twig', [
+            'titre' => $titre,
+        ]);
+    }
+
 }
+
+  
