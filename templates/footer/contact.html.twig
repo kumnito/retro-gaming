@@ -1,7 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mega Drive{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
 
+    <div class="card-header bg-dark text-white text-uppercase" style="text-align: center;"> Contact
+    </div>
+    <br>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white border border-ligh">
+                    <li class="breadcrumb-item"><a href="index.html" style="color: black;">Accueil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="color: black;">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card border border-ligh">
+                <div class="card-header bg-dark text-white"><i class="fa fa-envelope " style="color:white"></i> Contactez-nous
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email" required>
+                            <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="6" required></textarea>
+                        </div>
+                        <div class="mx-auto">
+                        <button type="submit" class="btn btn-dark text-right">Envoyer</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-white bg-dark text-uppercase"><i class="fa fa-home" style="color:white"></i> Adresse</div>
+                <div class="card-body bg-white border border-ligh">
+                    <p>105 Avenue de la République, 59110 La Madeleine</p>
+                    <p>59110 LA MADELEINE </p>
+                    <p>France</p>
+                    <p>Email : contact@retrogaming.com</p>
+                    <p>Tel. +33 00 00 00 00 00</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
