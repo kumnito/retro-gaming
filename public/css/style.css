@@ -1,10 +1,13 @@
+
 body
 {
     background-image: url(../icons/test.png);
 }
 .navbar-toggler-icon
 {
-    background-image: url(../icons/pacman.jpg);
+    background-image: url(../icons/pacman-noir.png);
+    width:45px;
+    height:45px;
 }
 
 .bloc_left_price {

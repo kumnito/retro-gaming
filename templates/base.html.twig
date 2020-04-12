@@ -50,7 +50,7 @@
 
                         {% if is_granted('ROLE_USER')  == false %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('inscription') }}">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
+                            <a class="nav-link" href="#">  <img class="img1" src="{{ asset('icons/icon-etoile.png') }}"/> Inscription</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -70,7 +70,7 @@
     <br>
 
         {% block body %}{% endblock %}
-
+        
     <footer>
         <div class="container-wrap">
             <div class="row">
@@ -96,37 +96,37 @@
                         <li> <a href="{{ path('echangesRetours') }}"> ECHANGES ET RETOURS </a> </li>
                         <li> <a href="{{ path('contact') }}"> NOUS CONTACTER </a> </li>
                     </ul>
-                    </div>
-            </div>
+                 </div>
+           </div>
 
-            <div class="copyright">
-                <div class="container">
-                    <div class="footer-weight about-widget" style="text-align: center;">
-                        <div class="social-widget"> 
-                            <a href="#"> <i class="fab fa-facebook-square fa-2x"></i> </a>
-                            <a href="#"> <i class="fab fa-instagram fa-2x"></i> </a> 
-                            <a href="#"> <i class="fab fa-twitter-square fa-2x "></i> </a> 
-                            <a href="#"> <i class="fab fa-youtube fa-2x"></i> </i> </a>   
-                        </div>
+          <div class="copyright">
+              <div class="container">
+                <div class="footer-weight about-widget" style="text-align: center;">
+                    <div class="social-widget"> 
+                        <a href="#"> <i class="fab fa-facebook-square fa-2x"></i> </a>
+                        <a href="#"> <i class="fab fa-instagram fa-2x"></i> </a> 
+                        <a href="#"> <i class="fab fa-twitter-square fa-2x "></i> </a> 
+                        <a href="#"> <i class="fab fa-youtube fa-2x"></i> </i> </a>   
                     </div>
-                    <br>
-                    &copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés - 
-                    <p> Technologies utilisées : 
-                        <i class="fab fa-html5 fa-2x "></i>   <i class="fab fa-css3-alt fa-2x"> </i> 
-                        <i class="fab fa-php fa-2x"></i>  <i class="fab fa-symfony fa-2x"></i> 
-                    </p>
-
                 </div>
-            </div>
+                <br>
+                &copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés - 
+                <p> Technologies utilisées : 
+                    <i class="fab fa-html5 fa-2x "></i>   <i class="fab fa-css3-alt fa-2x"> </i> 
+                    <i class="fab fa-php fa-2x"></i>  <i class="fab fa-symfony fa-2x"></i> 
+                </p>
+
+              </div>
+          </div>
             <div style="margin-top:50px;">
                 <p class="float-right">
                     <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
                 </p>
             </div>
-            </div>
-
         </div>
-    </footer>
+
+    </div>
+</footer>
 
         {% block javascripts %}
         <!-- JS -->
