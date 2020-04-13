@@ -44,9 +44,14 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class=" btn btn-lg btn-block text-uppercase" style="color: black;" >
-                            <i class="fa fa-shopping-cart" style="color: black;"></i>  Ajouter au panier
-                        </a>
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="cart.html" class=" btn btn-lg btn-block text-uppercase" style="color: black;" >
+                                <i class="fa fa-shopping-cart" style="color: black;"></i>  Ajouter au panier
+                            </a>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') == false %}
+                            <i class="fa fa-shopping-cart" style="color: black;"></i> Veuillez vous connectez pour ajouter au panier
+                        {% endif %}
                     </form>
                 </div>
             </div>

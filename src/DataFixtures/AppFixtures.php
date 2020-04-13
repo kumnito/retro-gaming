@@ -8,10 +8,19 @@ use App\Entity\Jeux;
 use App\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Faker;
 
 class AppFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
+    
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
 
@@ -32,13 +41,13 @@ class AppFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         $user = new User();
         $user->setEmail('julien@wf3.fr');
-        $user->setPassword('$argon2id$v=19$m=65536,t=4,p=1$WXY5OEw0bG41VXNmNVpkSQ$2e01kUlqC101oxyLD83guZ8popc+sDyGMEQBjOVYnhc');
+        $user->setPassword($this->encoder->encodePassword($user, 'julien'));
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
 
         $user = new User();
         $user->setEmail('victoria@wf3.fr');
-        $user->setPassword('$argon2id$v=19$m=65536,t=4,p=1$NDZTbTFUc0VvcEs0aUdOUg$ZykB4EmG4caLZWcqE/2ZE/agSOSYTOe1v4Td6iC+I2s');
+        $user->setPassword($this->encoder->encodePassword($user, 'victoria'));
         $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
 
