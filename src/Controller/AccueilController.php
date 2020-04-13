@@ -60,10 +60,6 @@ class AccueilController extends AbstractController
             'titre' => $titre,
         ]);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> ...
 }
 
   

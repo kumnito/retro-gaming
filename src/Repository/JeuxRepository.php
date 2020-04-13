@@ -54,7 +54,7 @@ class JeuxRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('test')
             ->orderBy('test.compteur', 'desc')
-            ->setMaxResults(3)
+            ->setMaxResults(4)
             ->getQuery();
 
         return $queryBuilder->getResult();
