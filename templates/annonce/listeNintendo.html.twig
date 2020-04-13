@@ -18,9 +18,8 @@
             <button type="submit" class="btn btn-primary my-1">Choisir</button>
         </form>
     </div> #}
-    <div class="row">
-        <div class="col-sm">
-            <div class="card">
+        <div class="row">
+            <div class="col-sm">
                 <div class="card-body">
                     <div class="row">
                         {% for jeu in allJeux %}
@@ -30,13 +29,12 @@
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">
-                                                <a href="{{ path('jeu_show', {id: jeu.id}) }}"
-                                                    class="btn btn-secondary">{{ jeu.titre }}</a>
+                                                <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
                                             </h5>
                                             <p><strong>{{ jeu.prix }} €</strong></p>
                                             <p>Année : {{ jeu.annee }}</p>
                                             <p>Categorie : {{ jeu.categorie.nom }}</p>
-                                            <p>Console : {{ jeu.consoleId.nom }}</p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +42,9 @@
                         {% endfor %}
                     </div>
                 </div>
-        </div>
+            </div>
+         </div>
+</div>
 
 
 {% endblock %}

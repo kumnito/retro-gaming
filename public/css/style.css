@@ -104,7 +104,6 @@ body
 }
 .card-img-top
 {
-    max-height:250px;
     height:auto;
 }
 .navbar-toggler-icon

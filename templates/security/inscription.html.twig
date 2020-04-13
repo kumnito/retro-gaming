@@ -8,13 +8,14 @@
     <div class="container">
         <h1 class="mb-4">S'inscrire</h1>
 
-    {{ form_start(form) }}
+        {{ form_start(form) }}
         {{ form_row(form.email) }}
         {{ form_row(form.password.first) }}
         {{ form_row(form.password.second) }}
         {{ form_row(form.roles) }}
 
         <button type="submit">S'inscrire</button>
-    {{ form_end(form) }}
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}

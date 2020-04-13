@@ -11,7 +11,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-sm">
-            <div class="card">
+
                 <div class="card-header bg-dark text-white text-uppercase">
                     <i class="fa fa-star"></i> Meilleures ventes
                 </div>
@@ -26,8 +26,7 @@
 
                                             <div class="card-body">
                                                 <h5 class="card-title">
-                                                    <a href="{{ path('jeu_show', {id: jeu.id}) }}"
-                                                        class="btn btn-secondary">{{ jeu.titre }}</a>
+                                                    <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
                                                 </h5>
                                                 <p><strong>{{ jeu.prix }} €</strong></p>
                                                 <p>Année : {{ jeu.annee }}</p>
@@ -41,7 +40,7 @@
                         
                     </div>
                 </div>
-            </div>
+
         </div>
     </div>
 </div>
