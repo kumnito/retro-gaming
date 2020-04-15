@@ -4,12 +4,11 @@
 
 {% block body %}
 
-
         <div class="container mt-3">
            <div class="row">
                 <div class="col-sm">
-                    <div class="card-body">
-                        <div class="row">                   
+                    <div class="card-body" style="text-align:center;">
+                        <div class="row">      
                             {% for jeu in allJeux %}
                                 <div class="col-lg-3">
                                     <div class="card shadow">
@@ -23,6 +22,7 @@
                                                     <p>Année : {{ jeu.annee }}</p>
                                                     <p>Categorie : {{ jeu.categorie.nom }}</p>
                                                 </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

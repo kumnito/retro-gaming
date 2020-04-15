@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}Retro Gaming 90{% endblock %}</title>
         {% block stylesheets %}
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/all.css') }}" rel="stylesheet">
         <link href="{{ asset('css/class.css') }}" rel="stylesheet">
         {% endblock %}
-    </head>
-    <body>
+</head>
+<body>
         <nav class="navbar navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="{{ path('accueil') }}"> <img class="logo1" src="{{ asset('icons/logo-retro1.png') }}" width="130px"> </a>
@@ -77,53 +77,54 @@
 
         {% block body %}{% endblock %}
  
-    <footer>
+<footer>
         <div class="container-wrap">
             <div class="row">
                 <div class="columun">
                     <div class="footer-weight">
                         <h5 class="widget-title about-widget"> A propos </h5>
                         <div class="cards">
-                        <i class="fab fa-cc-mastercard fa-2x"></i> 
-                        <i class="fab fa-cc-visa fa-2x"></i>
-                        <i class="fab fa-cc-amex fa-2x"></i> 
-                        <i class="fab fa-cc-paypal fa-2x"></i>
+                            <i class="fab fa-cc-mastercard fa-2x"></i> 
+                            <i class="fab fa-cc-visa fa-2x"></i>
+                            <i class="fab fa-cc-amex fa-2x"></i> 
+                            <i class="fab fa-cc-paypal fa-2x"></i>
 
-                    </div>
-                    <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
-                </div>
-            </div>
-
-            <div class="columun">
-                <div class="footer-weight Information-widget">
-                    <h5 class="widget-title"> Informations </h5>
-                        <div class="informations">
-                            <li> <a href="{{ path('conditions') }}"> CONDITIONS GENERALES </a> </li>
-                            <li> <a href="{{ path('echangesRetours') }}"> ECHANGES ET RETOURS </a> </li>
-                            <li> <a href="{{ path('contact') }}"> NOUS CONTACTER </a> </li>
                         </div>
-                 </div>
-           </div>
+                        <p> <span> <i class="fas fa-lock"></i> </span> Paiements sécurisées </p>
+                    </div>
+                </div>
 
-            <div class="copyright">
-                <div class="container">
-                    <div>
-                        <h5 class="widget-title about-widget"> Technologies utlisées </h5>
-                        <i class="fab fa-html5 fa-3x "></i>   <i class="fab fa-css3-alt fa-3x"></i>
-                        <i class="fab fa-js-square fa-3x"></i>
-                        <i class="fab fa-php fa-3x"></i>  <i class="fab fa-symfony fa-3x"></i>
-                        <i class="fab fa-git-square fa-3x"></i>
-                        
+                <div class="columun">
+                    <div class="footer-weight Information-widget">
+                        <h5 class="widget-title"> Informations </h5>
+                            <div class="informations">
+                                <li> <a href="{{ path('conditions') }}"> CONDITIONS GENERALES </a> </li>
+                                <li> <a href="{{ path('echangesRetours') }}"> ECHANGES ET RETOURS </a> </li>
+                                <li> <a href="{{ path('contact') }}"> NOUS CONTACTER </a> </li>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <div class="container">
+                        <div>
+                            <h5 class="widget-title about-widget"> Technologies utlisées </h5>
+                            <i class="fab fa-html5 fa-3x "></i>   <i class="fab fa-css3-alt fa-3x"></i>
+                            <i class="fab fa-js-square fa-3x"></i>
+                            <i class="fab fa-php fa-3x"></i>  <i class="fab fa-symfony fa-3x"></i>
+                            <i class="fab fa-git-square fa-3x"></i>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
                     <br>
-    <div>
-        <p class="float-right">
-            <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
-        </p>
+        <div>
+            <p class="float-right">
+                <a href="#" style="color:#007bff;"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+            </p>
             <div class="footer-weight about-widget" style="text-align: center;">
                 <div class="social-widget"> 
                     <a href="https://www.facebook.com"><i class="fab fa-facebook-square fa-1x"></i> </a>
@@ -133,35 +134,17 @@
                 </div>
             </div>
                 <p class="copy">&copy; 2020 - Team Kum, Julien, Victoria et Améline - Tous droits réservés -</p>
-    </div>
+        </div>
 </footer>
 
         {% block javascripts %}
         <!-- JS -->
+        <script src="{{ asset('script/script.js') }}" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
-    //Plus & Minus for Quantity product
-    $(document).ready(function(){
-        var quantity = 1;
 
-        $('.quantity-right-plus').click(function(e){
-            e.preventDefault();
-            var quantity = parseInt($('#quantity').val());
-            $('#quantity').val(quantity + 1);
-        });
-
-        $('.quantity-left-minus').click(function(e){
-            e.preventDefault();
-            var quantity = parseInt($('#quantity').val());
-            if(quantity > 1){
-                $('#quantity').val(quantity - 1);
-            }
-        });
-    });
-</script>
         {% endblock %}
-    </body>
+</body>
 </html>
