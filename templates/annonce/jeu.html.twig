@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mega Drive{% endblock %}
+{% block title %}{{ titre  }}{% endblock %}
 
 {% block body %}
-
-
         <div class="card mb-3">
             <div class="row no-gutters"  style="margin:20px;">
                 <div class="col-md-4">
@@ -21,7 +19,16 @@
                         <p class="card-text">{{ jeu.categorie.nom }}</p> 
                         <h5 class="card-title">Annee</h5>
                         <p class="card-text">{{ jeu.annee }}</p>
-                        <button type="button" class="btn btn-success">Ajouter au panier</button>
+                        
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="{{ path('ajouter_panier', {'id': jeu.id}) }}" class=" btn btn-lg btn-block text-uppercase" style="color: black;" >
+                                <i class="fa fa-shopping-cart" style="color: black;"></i>  Ajouter au panier
+                            </a>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') == false %}
+                            <i class="fa fa-shopping-cart" style="color: black;"></i> Veuillez vous connectez pour ajouter au panier
+                        {% endif %}
+                        
                     </div>
             </div>
         </div>

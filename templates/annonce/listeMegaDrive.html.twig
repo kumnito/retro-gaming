@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mega Drive{% endblock %}
+{% block title %}{{ titre  }}{% endblock %}
 
 {% block body %}
 
@@ -11,21 +11,16 @@
                         <div class="row">      
                             {% for jeu in allJeux %}
                                 <div class="col-lg-3">
-                                    <div class="genre">
-                                        <div class="{{ jeu.categorie.nom }}">                                          
-                                            <div class="card shadow">
-                                                <div class="card">
-                                                    <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">
-                                                                <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
-                                                            </h5>
-                                                            {# <p>{{ jeu.description }}</p> #}
-                                                            <p><strong>{{ jeu.prix }} €</strong></p>
-                                                            <p>Année : {{ jeu.annee }}</p>
-                                                            <p>Categorie : {{ jeu.categorie.nom }}</p>
-                                                            <p>Console : {{ jeu.consoleId.nom }}</p>
-                                                        </div>
+                                    <div class="card shadow">
+                                        <div class="card">
+                                            <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
+                                                    </h5>
+                                                    <p><strong>{{ jeu.prix }} €</strong></p>
+                                                    <p>Année : {{ jeu.annee }}</p>
+                                                    <p>Categorie : {{ jeu.categorie.nom }}</p>
                                                 </div>
                                             </div>
                                         </div>

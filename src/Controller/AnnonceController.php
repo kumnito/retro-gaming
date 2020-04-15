@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Entity\Jeux;
+use App\Entity\User;
 use App\Form\AnnonceType;
 use App\Form\FindByCatType;
 
@@ -56,9 +57,24 @@ class AnnonceController extends AbstractController
 
         return $this->render('admin/admin.html.twig', [
             'allJeux' => $allJeux,
-            'titre'=> $titre,
+            'titre' => $titre,
         ]);
     }
+
+    /**
+     * @Route("/Administration/user", name="Administration_user")
+     */
+    public function user()
+    {
+        $titre='Administration';
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        return $this->render('admin/userAdmin.html.twig', [
+            'users' => $users,
+            'titre' => $titre,
+        ]);
+    }
+
 
     /**
      * @Route("/annonce/jeu{id}", name="jeu_show")

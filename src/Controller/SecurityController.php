@@ -9,6 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Form\UserType;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
@@ -36,8 +37,10 @@ class SecurityController extends AbstractController
      /**
      * @Route("/logout", name="app_logout", methods={"GET"})
      */
-    public function logout()
+    public function logout(SessionInterface $session)
     {
+        $session->set('panier', null);
+        
         return $this->redirectToRoute('accueil');
     }
 

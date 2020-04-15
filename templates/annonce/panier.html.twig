@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre  }}{% endblock %}
+
+{% block body %}
+
+    {% if panier | length > 0 %}
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in panier %}
+                                <tr>
+                                    <td>{{ item.jeu.titre }}</td>
+                                    <td>{{ item.jeu.prix }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>{{ item.jeu.prix * item.quantity }}</td>
+                                    <td>
+                                        <a href="{{ path('supprimer_panier', {'id': item.jeu.id}) }}" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right">Total : </td>
+                                <td>{{ total }}</td>
+                                <td>
+                                    <a href="{{ path('commande') }}" class="btn btn-success btn-sm">commander
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <p> votre panier est vide </p>
+    {% endif %}
+{% endblock %}

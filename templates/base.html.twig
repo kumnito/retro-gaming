@@ -30,7 +30,10 @@
                         </li>
                         {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('Administration') }}"><img class="img1" src="{{ asset('icons/icon-admin.png') }}"/> Administration</a>
+                            <a class="nav-link" href="{{ path('Administration') }}"><img class="img1" src="{{ asset('icons/icon-admin.png') }}"/> Administration JEUX</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('Administration_user') }}"><img class="img1" src="{{ asset('icons/icon-admin.png') }}"/> Administration USER</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -55,15 +58,15 @@
                         {% endif %}
                     </ul>
                 
-                    <form class="form-inline my-2 my-lg-0">
-                        <a class="btn btn-sm ml-3" href="cart.html">
-                            <i class="fa fa-shopping-cart fa-2x"></i>
-                            {% if is_granted('ROLE_USER') %}
-                                <p>{{ app.user.username }}</p>
-                            {% endif %} 
-                            <p > Panier </p>
-                        </a>
-                    </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-sm ml-3" href="{{ path('panier') }}">
+                        <i class="fa fa-shopping-cart fa-2x"></i>
+                        {% if is_granted('ROLE_USER') %}
+                            <p>{{ app.user.username }}</p>
+                        {% endif %} 
+                        <p>Panier</p>
+                    </a>
+                </form>
                 </div>
             </div>
         </nav>

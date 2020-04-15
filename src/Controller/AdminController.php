@@ -97,14 +97,8 @@ class AdminController extends AbstractController
                 $jeu->setPhoto($newFilename);
             }
 
-            // On peut aussi utiliser l'autowiring :
-            // create(EntityManagerInterface $entityManager)
             $entityManager = $this->getDoctrine()->getManager();
-
-            // On demande à Doctrine de mettre l'objet en attente
             $entityManager->persist($jeu);
-
-            // Exécute la(es) requête(s) (INSERT...)
 			$entityManager->flush();
 
             return $this->redirectToRoute('Administration');
