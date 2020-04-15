@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Jeux;
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
 
 class AccueilController extends AbstractController
 {
@@ -51,13 +53,33 @@ class AccueilController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact()
+    public function contact(Request $request, \Swift_Mailer $mailer)
     {
-
         $titre='contact';
+        
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $contact = $form->getData();
+
+            $message = (new \Swift_Message('Nouveau contact'))
+                ->setFrom($contact['email'])
+                ->setTo('contact@retrogaming.comr')
+                ->setBody(
+                    $this->renderView(
+                        'email/contact.html.twig', compact('contact')
+                    ),
+                    'text/html'
+                )
+            ;
+            $mailer->send($message);
+        }
 
         return $this->render('footer/contact.html.twig', [
             'titre' => $titre,
+            'form'  => $form->createView()
         ]);
     }
 }

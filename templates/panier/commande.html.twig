@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre  }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Merci {{ app.user.username }}</h2>
+            <h5>Votre commande de {{ totalJeux }}
+                {% if totalJeux == 1 %}
+                jeu
+                {% else %}
+                jeux
+                {% endif %}
+                pour un montant total de {{ total }} 
+                euros à bien été prise en compte !</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card-body">
+                <div class="row">                   
+                    {% for item in panier %}
+                        <div class="col-lg-3">
+                            <div class="card shadow">
+                                <div class="card">
+                                    <img class="card-img-top" src="{{ asset( 'images/' ~ item.jeu.photo  ) }}" alt="{{ item.jeu.titre }}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                {{ item.jeu.titre }}
+                                            </h5>
+                                            <p><strong>{{ item.jeu.prix }} €</strong></p>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

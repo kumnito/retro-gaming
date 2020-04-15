@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+
+        <a href="{{ path('admin_user_creation') }}" class="btn btn-success">créer un nouvel utilisateur</a>
+
+        <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col1">Id</th>
+                    <th scope="col2">email</th>
+                    <th scope="col4">Modifier/Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ user.id }}</th>
+                        <td>{{ user.email }}</td>
+                        <td class="flex">
+                            <a href="{{ path('admin_user_modification', {id: user.id}) }}" class="btn btn-warning">Modifier</a>
+                            <a href="{{ path('admin_user_suppression', {id: user.id}) }}" class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
