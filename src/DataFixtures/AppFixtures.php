@@ -41,13 +41,13 @@ class AppFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         $user = new User();
         $user->setEmail('julien@wf3.fr');
-        $user->setPassword($this->encoder->encodePassword($user, 'julien'));
+        $user->setPassword($this->passwordEncoder->encodePassword($user, 'julien'));
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
 
         $user = new User();
         $user->setEmail('victoria@wf3.fr');
-        $user->setPassword($this->encoder->encodePassword($user, 'victoria'));
+        $user->setPassword($this->passwordEncoder->encodePassword($user, 'victoria'));
         $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
 

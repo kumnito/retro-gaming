@@ -4,18 +4,14 @@
 
 {% block body %}
 
-    <div class="flex">
-        <img class="personnage" src="images/personnages.png">
-    </div>
-
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-sm">
-
+<script src="script/script-genre.js"></script>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm">
                 <div class="card-header bg-dark text-white text-uppercase">
                     <i class="fa fa-star"></i> Meilleures ventes
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="text-align:center;">
                     <div class="row">
 
                         {% for jeu in allJeux %}
@@ -23,16 +19,15 @@
                                 <div class="card shadow">
                                     <div class="card">
                                         <img class="card-img-top" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="Card image cap">
-
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
-                                                </h5>
-                                                <p><strong>{{ jeu.prix }} €</strong></p>
-                                                <p>Année : {{ jeu.annee }}</p>
-                                                <p>Categorie : {{ jeu.categorie.nom }}</p>
-                                                <p>Console : {{ jeu.consoleId.nom }}</p>
-                                            </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <a href="{{ path('jeu_show', {id: jeu.id}) }}">{{ jeu.titre }}</a>
+                                            </h5>
+                                            <p><strong>{{ jeu.prix }} €</strong></p>
+                                            <p>Année : {{ jeu.annee }}</p>
+                                            <p>Categorie : {{ jeu.categorie.nom }}</p>
+                                            <p>Console : {{ jeu.consoleId.nom }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -40,8 +35,7 @@
                         
                     </div>
                 </div>
-
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

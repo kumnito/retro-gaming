@@ -67,7 +67,7 @@ margin: 0 auto;
 }
 
 nav .container{
-    max-width:960px;
+    max-width:1400px;
     width: auto; 
     padding-right: 15px;
     padding-left: 15px;
@@ -80,11 +80,11 @@ nav .container{
 
 
 .container h4 {
-    font-family: 'arcaderegular';
+    font-family: 'gamesitalic';
     }
     
     h1 {
-    font-family: 'arcaderegular';
+    font-family: 'gamesitalic';
     }
     
     .formulaire {
@@ -266,6 +266,7 @@ margin-right:auto;
     margin-right: 20px;
     max-width:200px;
     width:auto;
+    background: white;
 }
 .informations
 {
@@ -279,5 +280,10 @@ margin-right:auto;
 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
+}
+#user_roles
+{
+    visibility: hidden;
 }

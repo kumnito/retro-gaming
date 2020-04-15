@@ -9,39 +9,39 @@
         <a href="{{ path('admin_creation') }}" class="btn btn-success">Ajouter un jeu</a>
 
         <div class="col-12">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col1">Id</th>
-                    <th scope="col2">Titre</th>
-                    <th class="ecran" scope="col3">Année</th>
-                    <th class="ecran" scope="col4">Prix</th>
-                    <th class="ecran" scope="col5">Console</th>
-                    <th class="ecran" scope="col6">Genre</th>
-                    <th class="ecran" scope="col7">Image</th>
-                    <th scope="col8">Modifier/Supprimer</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    {% for jeu in allJeux %}
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
                     <tr>
-                        <th scope="row">{{ jeu.id }}</th>
-                        <td>{{ jeu.titre }}</td>
-                        <td class="ecran">{{ jeu.annee }}</td>
-                        <td class="ecran">{{ jeu.prix }}</td>
-                        <td class="ecran">{{ jeu.consoleId.nom }}</td>
-                        <td class="ecran">{{ jeu.categorie.nom }}</td>
-                        <td class="ecran"><img class="img-rounded"  style="width:30%" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="{{ jeu.titre }}"></td>
-                        <td class="flex">
-                            <a href="{{ path('admin_modification', {id: jeu.id}) }}" class="btn btn-warning">Modifier</a>
-                            <a href="{{ path('admin_suppression', {id: jeu.id}) }}" class="btn btn-danger">Supprimer</a>
-                        </td>
+                        <th scope="col1">Id</th>
+                        <th scope="col2">Titre</th>
+                        <th class="ecran" scope="col3">Année</th>
+                        <th class="ecran" scope="col4">Prix</th>
+                        <th class="ecran" scope="col5">Console</th>
+                        <th class="ecran" scope="col6">Genre</th>
+                        <th class="ecran" scope="col7">Image</th>
+                        <th scope="col8">Modifier/Supprimer</th>
                     </tr>
-                    {% endfor %}
-                </tbody>
-              </table>
-              </div>
+                    </thead>
+                    <tbody>
+                        {% for jeu in allJeux %}
+                        <tr>
+                            <th scope="row">{{ jeu.id }}</th>
+                            <td>{{ jeu.titre }}</td>
+                            <td class="ecran">{{ jeu.annee }}</td>
+                            <td class="ecran">{{ jeu.prix }}</td>
+                            <td class="ecran">{{ jeu.consoleId.nom }}</td>
+                            <td class="ecran">{{ jeu.categorie.nom }}</td>
+                            <td class="ecran"><img class="img-rounded"  style="width:30%" src="{{ asset( 'images/' ~ jeu.photo  ) }}" alt="{{ jeu.titre }}"></td>
+                            <td class="flex">
+                                <a href="{{ path('admin_modification', {id: jeu.id}) }}" class="btn btn-warning">Modifier</a>
+                                <a href="{{ path('admin_suppression', {id: jeu.id}) }}" class="btn btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
