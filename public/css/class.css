@@ -116,7 +116,10 @@ margin: 5% auto;
 footer {
     background: #343a40;
     padding: 15px;
-    color:#abaBaB;    
+    color:#abaBaB;   
+    position: relative;
+    bottom:0;
+    width:100%;
 }
 
 .container-wrap .row {
@@ -281,5 +284,10 @@ margin-right:auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+}
+.panier-vide
+{
+    max-height:auto;
+    height:400px;
+    text-align: center;
 }

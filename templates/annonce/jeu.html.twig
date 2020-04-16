@@ -21,12 +21,12 @@
                         <p class="card-text">{{ jeu.annee }}</p>
                         
                         {% if is_granted('ROLE_USER') %}
-                            <a href="{{ path('ajouter_panier', {'id': jeu.id}) }}" class=" btn btn-lg btn-block text-uppercase" style="color: black;" >
+                            <a href="{{ path('ajouter_panier', {'id': jeu.id}) }}" class=" btn btn-lg btn-block text-uppercase" style="color: black; border:2px solid black;" >
                                 <i class="fa fa-shopping-cart" style="color: black;"></i>  Ajouter au panier
                             </a>
                         {% endif %}
                         {% if is_granted('ROLE_USER') == false %}
-                            <i class="fa fa-shopping-cart" style="color: black;"></i> Veuillez vous connectez pour ajouter au panier
+                            <i class="fa fa-shopping-cart" style="color: black; border:2px solid black;"></i> Veuillez vous connectez pour ajouter au panier
                         {% endif %}
                         
                     </div>
