@@ -30,7 +30,7 @@ class AnnonceType extends AbstractType
             ->add('description')
             ->add('annee')
             ->add('prix')
-            ->add('compteur')
+            //->add('compteur')
 
             ->add('Console_id', EntityType::class, [
                 'class' => Console::class,

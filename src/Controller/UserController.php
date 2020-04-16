@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\UserAdminType;
 
 class UserController extends AbstractController
 {
@@ -30,7 +30,7 @@ class UserController extends AbstractController
     public function modifier(Request $request, User $user)
     {
         $titre='Administration';
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserAdminType::class , $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class UserController extends AbstractController
     {
         $titre='Administration';
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserAdminType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
