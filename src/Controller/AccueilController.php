@@ -66,7 +66,7 @@ class AccueilController extends AbstractController
 
             $message = (new \Swift_Message('Nouveau contact'))
                 ->setFrom($contact['email'])
-                ->setTo('contact@retrogaming.comr')
+                ->setTo('contact@retrogaming.com')
                 ->setBody(
                     $this->renderView(
                         'email/contact.html.twig', compact('contact')
