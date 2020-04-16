@@ -5,7 +5,7 @@
 {% block body %}
 
     {% if panier | length > 0 %}
-    <div class="container mb-4">
+    <div class="container mb-4" style="margin-top: 50px;">
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
@@ -19,7 +19,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="background-color:rgba(0,0,0,.05);">
                             {% for item in panier %}
                                 <tr>
                                     <td>{{ item.jeu.titre }}</td>
@@ -50,6 +50,6 @@
         </div>
     </div>
     {% else %}
-        <p> votre panier est vide </p>
+        <div class="panier-vide"><p> votre panier est vide </p></div>
     {% endif %}
 {% endblock %}
