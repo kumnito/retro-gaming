@@ -61,6 +61,7 @@ class SecurityController extends AbstractController
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
+            $user->setRoles(['ROLE_USER']);
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
